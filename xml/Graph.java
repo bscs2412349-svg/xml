@@ -31,10 +31,11 @@ public class Graph {
             if(i == vertex) continue;
             for(int j = 0, nj = 0; j < vertices; j++){
                 if(j == vertex) continue;
-                newMatrix[ni][nj++] = adjMatrix[ni][nj];
+                newMatrix[ni][nj++] = adjMatrix[i][j];
             }
             ni++;
         }
+        vertices--;
         adjMatrix = newMatrix;
     }
 
@@ -57,20 +58,24 @@ public class Graph {
     }
 
     public void DFS(int start){
+        if(start < 0 || start >= vertices) return;
         boolean[] visited = new boolean[vertices];
         visited[start] = true;
-        dfshelper(start ,visited);
+        dfshelper(start, visited);
+        System.out.println();
     }
 
-    private void dfshelper(int start ,boolean[] visited){
+
+    private void dfshelper(int start, boolean[] visited){
+        System.out.print(start + "---"); // print node
         for(int i = 0; i < vertices; i++){
             if(adjMatrix[start][i] == 1 && !visited[i]){
-                System.out.println(adjMatrix[start][i] + "---");
                 visited[i] = true;
-                dfshelper(i,visited);
+                dfshelper(i, visited);
             }
         }
     }
+
 
     public void BFS(int start){
         Queue<Integer> bfsQueue = new LinkedList<>();
