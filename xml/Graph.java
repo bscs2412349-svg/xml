@@ -98,4 +98,11 @@ public class Graph {
 
     }
 
+    public static void main(String[] args) {
+        Graph graph = new Graph(4);
+        graph.addEdge(0,1);
+        graph.addEdge(1,2);
+        graph.BFS(0);
+    }
+
 }

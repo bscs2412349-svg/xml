@@ -2,7 +2,7 @@ package xml;
 
 
 public class CustomStackLinkedList {
-    private Node head = null;
+     Node head = null;
 
     private class Node {
         int data;
@@ -17,16 +17,14 @@ public class CustomStackLinkedList {
 
         public void push(int value){
             Node nn = new Node(value);
-            if(head == null){
-                head = nn;
-            }
+
             nn.next = head;
             head = nn;
         }
 
-        public int pop()throws Exception{
+        public int pop(){
             if(head == null){
-                throw new Exception("Stack empty");
+                return -1;
             }
             int removed = head.data;
             head = head.next;
@@ -41,5 +39,13 @@ public class CustomStackLinkedList {
                 temp = temp.next;
             }
         }
+
+    public static void main(String[] args) {
+        CustomStackLinkedList stack = new CustomStackLinkedList();
+        stack.push(10);
+        stack.push(20);
+        stack.pop();
+        stack.print();
+    }
 }
 

@@ -52,4 +52,12 @@ public class SimpleQueue {
     public boolean isEmpty(){
         return end == 0;
     }
+
+    public static void main(String[] args) {
+        SimpleQueue queue = new SimpleQueue(5);
+        queue.insert(10);
+        queue.insert(20);
+        queue.remove();
+        queue.display();
+    }
 }

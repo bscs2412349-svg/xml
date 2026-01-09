@@ -48,4 +48,13 @@ public class CustomQueueLinkedList {
             temp = temp.next;
         }
     }
+
+    public static void main(String[] args) {
+        CustomQueueLinkedList queue = new CustomQueueLinkedList();
+        queue.enqueue(5);
+        queue.enqueue(10);
+        queue.print();
+        queue.dequeue();
+        queue.print();
+    }
 }
